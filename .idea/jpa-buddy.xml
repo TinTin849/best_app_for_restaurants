@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig" migrateIndexesAndConstraints="true">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="a9dd458a-c393-433e-83dd-eb1cc3fe46a9" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/tintin/app_for_restaurants/entity" />
+    <reUseDbSnapshotConnections>
+      <dbConnection id="a9dd458a-c393-433e-83dd-eb1cc3fe46a9" />
+    </reUseDbSnapshotConnections>
+    <option name="newEntityIdStrategy" />
+  </component>
+</project>

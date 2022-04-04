@@ -6,7 +6,6 @@
 <body>
 
 <h2>All available goods</h2>
-<br>
 
 <table border="1">
     <tr>
@@ -27,11 +26,10 @@
         </tr>
     </c:forEach>
 </table>
-<br>
+<br><br>
 
 <input type="button" value="New Order" onclick="window.location.href = 'newOrder'"/>
-<br>
-<br>
+<br><br>
 <input type="button" value="Fix Warehouse" onclick="window.location.href = 'fixGoods'"/>
 
 </body>

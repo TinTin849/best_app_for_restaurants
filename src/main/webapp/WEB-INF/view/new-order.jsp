@@ -6,16 +6,6 @@
 <body>
 
 <h2>New order panel</h2>
-<br>
-
-<%--<form action="newOrder" >--%>
-<%--    <select onchange="">--%>
-<%--        <c:forEach var="item" items="${allGoods}">--%>
-<%--            <option value="${item.id}" name="itemId">${item.name}</option>--%>
-<%--        </c:forEach>--%>
-<%--    </select>--%>
-<%--    <input type="submit" name="order" value="Order"/>--%>
-<%--</form>--%>
 
 <form:form action="newOrder" modelAttribute="item">
     <form:select path="id">
@@ -26,8 +16,6 @@
     </form:select>
     <input type="submit" value="OK">
 </form:form>
-
-
 <br><br>
 
 <table border="1">
@@ -50,6 +38,11 @@
         </tr>
     </c:forEach>
 </table>
+<br><br>
+
+<input type="button" value="Show all orders" onclick="window.location.href = 'allOrders'"/>
+<br><br>
+<input type="button" value="Fix Suppliers and Items" onclick="window.location.href = 'fixSuppliersAndItems'"/>
 
 </body>
 

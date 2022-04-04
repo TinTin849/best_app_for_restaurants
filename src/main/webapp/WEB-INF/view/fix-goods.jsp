@@ -6,7 +6,6 @@
 <body>
 
 <h2>Warehouse editor</h2>
-<br>
 
 <table border="1">
     <tr>
@@ -27,7 +26,7 @@
         </tr>
     </c:forEach>
 </table>
-<br>
+<br><br>
 
 <input type="button" value="Back" onclick="window.location.href = '/best_app_for_restaurants/'"/>
 

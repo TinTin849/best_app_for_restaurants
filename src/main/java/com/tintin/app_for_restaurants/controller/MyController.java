@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.swing.event.ListDataEvent;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class MyController {
@@ -101,5 +98,22 @@ public class MyController {
         restaurantService.saveItem(orderedItem);
 
         return "redirect:/";
+    }
+
+    @RequestMapping("/allOrders")
+    public String showAllOrders(Model model) {
+
+        List<Order> allOrders = restaurantService.getAllOrders();
+        model.addAttribute("allOrders", allOrders);
+
+        return "all-orders";
+    }
+
+    @RequestMapping("/deleteOrder")
+    public String deleteOrder(@RequestParam("orderId") int id) {
+
+        restaurantService.deleteOrder(id);
+
+        return "redirect:/allOrders";
     }
 }

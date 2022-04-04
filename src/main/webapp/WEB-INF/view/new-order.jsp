@@ -8,37 +8,48 @@
 <h2>New order panel</h2>
 <br>
 
-<form action="/newOrder">
-<select>
-    <c:forEach var="item" items="${allGoods}">
-        <option value="${item.id}" name="itemId">${item.name}</option>
-    </c:forEach>
-</select>
-</form>
+<%--<form action="newOrder" >--%>
+<%--    <select onchange="">--%>
+<%--        <c:forEach var="item" items="${allGoods}">--%>
+<%--            <option value="${item.id}" name="itemId">${item.name}</option>--%>
+<%--        </c:forEach>--%>
+<%--    </select>--%>
+<%--    <input type="submit" name="order" value="Order"/>--%>
+<%--</form>--%>
+
+<form:form action="newOrder" modelAttribute="item">
+    <form:select path="id">
+        <form:option value="-1">--SELECT--</form:option>
+        <c:forEach var="item" items="${allGoods}">
+            <form:option value="${item.id}" name="itemId">${item.name}</form:option>
+        </c:forEach>
+    </form:select>
+    <input type="submit" value="OK">
+</form:form>
+
+
+<br><br>
 
 <table border="1">
     <tr>
         <th>Name</th>
         <th>Price</th>
     </tr>
-    <c:forEach var="item" items="${suitableSuppliers}">
+    <c:forEach var="chosenSaP" items="${chosenSuppliersAndPrices}">
         <tr>
-            <td>${item.key.name}</td>
-            <td>${item.value}</td>
+            <td>${chosenSaP.supplier.name}</td>
+            <td>${chosenSaP.price}</td>
             <td>
-                <form action="writeOffOfGoods">
+                <form action="addOrder">
                     <input type="number" min="1" name="numberToOrder"/>
-                    <input type="hidden" value="${item.id}" name="itemId">
-                    <input type="submit" name="Write-Off" value="Write-Off"/>
+                    <input type="hidden" value="${chosenSaP.supplier.id}" name="supplierName">
+                    <input type="hidden" value="${chosenSaP.item.id}" name="itemName">
+                    <input type="submit" name="order" value="Order"/>
                 </form>
             </td>
         </tr>
     </c:forEach>
 </table>
-
-
-
-
 
 </body>
 

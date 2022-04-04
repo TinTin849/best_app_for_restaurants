@@ -1,11 +1,13 @@
 package com.tintin.app_for_restaurants.dao;
 
+import com.tintin.app_for_restaurants.entity.ItemToSupplier;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
+import java.util.List;
 
 @Repository
 public class ItemToSupplierDAOImpl implements ItemToSupplierDAO {
@@ -21,7 +23,19 @@ public class ItemToSupplierDAOImpl implements ItemToSupplierDAO {
         query.setParameter("supplierId", supplierId);
         query.setParameter("itemId", itemId);
 
-        double price = query.getFirstResult();
+        double price = (double) query.getSingleResult();
+
         return price;
+    }
+
+    @Override
+    public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId) {
+        Session session = sessionFactory.getCurrentSession();
+
+        Query query = session.createQuery("FROM ItemToSupplier WHERE item.id = :itemId");
+        query.setParameter("itemId", itemId);
+
+        List<ItemToSupplier> result = query.getResultList();
+        return result;
     }
 }

@@ -1,13 +1,6 @@
 package com.tintin.app_for_restaurants.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -15,7 +8,7 @@ import java.time.LocalDate;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -93,5 +86,17 @@ public class Order {
 
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderItem=" + orderItem +
+                ", orderSupplier=" + orderSupplier +
+                ", quantityOfGoods=" + quantityOfGoods +
+                ", price=" + price +
+                ", creationDate=" + creationDate +
+                '}';
     }
 }

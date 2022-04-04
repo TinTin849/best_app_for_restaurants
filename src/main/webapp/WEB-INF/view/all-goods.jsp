@@ -29,7 +29,7 @@
 </table>
 <br>
 
-<input type="button" value="New Order" onclick="window.location.href = 'chooseItemToOrder'"/>
+<input type="button" value="New Order" onclick="window.location.href = 'newOrder'"/>
 <br>
 <br>
 <input type="button" value="Fix Warehouse" onclick="window.location.href = 'fixGoods'"/>

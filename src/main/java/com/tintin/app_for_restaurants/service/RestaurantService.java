@@ -1,6 +1,7 @@
 package com.tintin.app_for_restaurants.service;
 
 import com.tintin.app_for_restaurants.entity.Item;
+import com.tintin.app_for_restaurants.entity.ItemToSupplier;
 import com.tintin.app_for_restaurants.entity.Order;
 import com.tintin.app_for_restaurants.entity.Supplier;
 
@@ -36,4 +37,5 @@ public interface RestaurantService {
 
 
     public double getPriceByIds(int supplierId, int itemId);
+    public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId);
 }

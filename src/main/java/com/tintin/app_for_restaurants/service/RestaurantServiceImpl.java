@@ -5,6 +5,7 @@ import com.tintin.app_for_restaurants.dao.ItemToSupplierDAO;
 import com.tintin.app_for_restaurants.dao.OrderDAO;
 import com.tintin.app_for_restaurants.dao.SupplierDAO;
 import com.tintin.app_for_restaurants.entity.Item;
+import com.tintin.app_for_restaurants.entity.ItemToSupplier;
 import com.tintin.app_for_restaurants.entity.Order;
 import com.tintin.app_for_restaurants.entity.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,5 +105,11 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Transactional
     public double getPriceByIds(int supplierId, int itemId) {
         return itemToSupplierDAO.getPriceByIds(supplierId, itemId);
+    }
+
+    @Override
+    @Transactional
+    public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId) {
+        return itemToSupplierDAO.getSupplierAndPriceByItemId(itemId);
     }
 }

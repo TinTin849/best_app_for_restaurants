@@ -11,12 +11,12 @@ public class ItemToSupplier {
     private ItemToSupplierId id;
 
     @MapsId("goodsId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "goods_id", nullable = false)
     private Item item;
 
     @MapsId("supplierId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "supplier_id", nullable = false)
     private Supplier supplier;
 

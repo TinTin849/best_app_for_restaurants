@@ -1,12 +1,12 @@
-package com.tintin.app_for_restaurants.dao;
+package com.tintin.app_for_restaurants.dao.impl;
 
+import com.tintin.app_for_restaurants.dao.SupplierDAO;
 import com.tintin.app_for_restaurants.entity.Supplier;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 

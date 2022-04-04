@@ -1,5 +1,6 @@
-package com.tintin.app_for_restaurants.dao;
+package com.tintin.app_for_restaurants.dao.impl;
 
+import com.tintin.app_for_restaurants.dao.ItemDAO;
 import com.tintin.app_for_restaurants.entity.Item;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
-import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository

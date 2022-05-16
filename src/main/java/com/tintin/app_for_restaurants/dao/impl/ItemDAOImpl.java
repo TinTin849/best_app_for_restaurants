@@ -13,8 +13,12 @@ import java.util.List;
 @Repository
 public class ItemDAOImpl implements ItemDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public ItemDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Item> getAllGoods() {
@@ -50,4 +54,5 @@ public class ItemDAOImpl implements ItemDAO {
 
         query.executeUpdate();
     }
+
 }

@@ -13,8 +13,12 @@ import java.util.List;
 @Repository
 public class OrderDAOImpl implements OrderDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public OrderDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Order> getAllOrders() {

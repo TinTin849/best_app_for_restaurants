@@ -13,8 +13,12 @@ import java.util.List;
 @Repository
 public class SupplierDAOImpl implements SupplierDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public SupplierDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Supplier> getAllSuppliers() {

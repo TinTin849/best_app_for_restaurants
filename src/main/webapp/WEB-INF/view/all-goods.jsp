@@ -19,7 +19,7 @@
             <td>
                 <form action="writeOffOfGoods">
                     <input type="number" max="${item.numberOfItems}" min="0" name="numberToWriteOff"/>
-                    <input type="hidden" value="${item.id}" name="itemId">
+                    <input type="hidden" value="${item.id}" name="itemId" />
                     <input type="submit" name="Write-Off" value="Write-Off"/>
                 </form>
             </td>

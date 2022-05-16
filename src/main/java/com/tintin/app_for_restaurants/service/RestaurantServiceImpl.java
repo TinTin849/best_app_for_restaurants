@@ -17,17 +17,24 @@ import java.util.List;
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
 
-    @Autowired
-    private ItemDAO itemDAO;
+    private final ItemDAO itemDAO;
+
+    private final SupplierDAO supplierDAO;
+
+    private final OrderDAO orderDAO;
+
+    private final ItemToSupplierDAO itemToSupplierDAO;
 
     @Autowired
-    private SupplierDAO supplierDAO;
-
-    @Autowired
-    private OrderDAO orderDAO;
-
-    @Autowired
-    private ItemToSupplierDAO itemToSupplierDAO;
+    public RestaurantServiceImpl(ItemDAO itemDAO,
+                                 SupplierDAO supplierDAO,
+                                 OrderDAO orderDAO,
+                                 ItemToSupplierDAO itemToSupplierDAO) {
+        this.itemDAO = itemDAO;
+        this.supplierDAO = supplierDAO;
+        this.orderDAO = orderDAO;
+        this.itemToSupplierDAO = itemToSupplierDAO;
+    }
 
     @Override
     @Transactional

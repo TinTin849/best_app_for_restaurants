@@ -19,8 +19,12 @@ import java.util.List;
 @Controller
 public class MyController {
 
+    private final RestaurantService restaurantService;
+
     @Autowired
-    private RestaurantService restaurantService;
+    public MyController(RestaurantService restaurantService) {
+        this.restaurantService = restaurantService;
+    }
 
     @RequestMapping("/")
     public String showAllGoods(Model model) {
@@ -115,5 +119,23 @@ public class MyController {
         restaurantService.deleteOrder(id);
 
         return "redirect:/allOrders";
+    }
+
+    @RequestMapping("/fixSuppliersAndItems")
+    public String fixSuppliersAndItems(@ModelAttribute("supplier") Supplier supplier
+            , Model model) {
+
+        List<Supplier> allSuppliers = restaurantService.getAllSuppliers();
+        model.addAttribute("allSuppliers", allSuppliers);
+
+        System.out.println(supplier.getId());
+
+        return "fix-suppliers-and-items";
+    }
+
+    @RequestMapping("/editSupplier")
+    public String editSupplier(Model model) {
+
+        return "edit-supplier";
     }
 }

@@ -119,4 +119,10 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId) {
         return itemToSupplierDAO.getSupplierAndPriceByItemId(itemId);
     }
+
+    @Override
+    @Transactional
+    public List<ItemToSupplier> getItemAndPriceBySupplierId(int supplierId) {
+        return itemToSupplierDAO.getItemAndPriceBySupplierId(supplierId);
+    }
 }

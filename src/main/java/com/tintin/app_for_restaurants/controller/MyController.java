@@ -26,6 +26,7 @@ public class MyController {
         this.restaurantService = restaurantService;
     }
 
+    //Page for goods list and writing them off
     @RequestMapping("/")
     public String showAllGoods(Model model) {
 
@@ -48,6 +49,7 @@ public class MyController {
         return "redirect:/";
     }
 
+    //Page for direct fix of goods in warehouse
     @RequestMapping("/fixGoods")
     public String fixGoods(Model model) {
 
@@ -70,6 +72,7 @@ public class MyController {
         return "redirect:/fixGoods";
     }
 
+    //Page for making of new orders
     @RequestMapping("/newOrder")
     public String newOrder(@ModelAttribute("item") Item item
             , Model model) {
@@ -104,6 +107,7 @@ public class MyController {
         return "redirect:/";
     }
 
+    //Page for orders list and deleting them
     @RequestMapping("/allOrders")
     public String showAllOrders(Model model) {
 
@@ -121,6 +125,7 @@ public class MyController {
         return "redirect:/allOrders";
     }
 
+    //Page for choosing pages for editing
     @RequestMapping("/fixSuppliersAndItems")
     public String fixSuppliersAndItems(@ModelAttribute("supplier") Supplier supplier
             , Model model) {
@@ -134,7 +139,14 @@ public class MyController {
     }
 
     @RequestMapping("/editSupplier")
-    public String editSupplier(Model model) {
+    public String editSupplier(@ModelAttribute("supplier") Supplier supplier
+            , Model model) {
+
+        List<ItemToSupplier> chosenItemsAndPrices = new ArrayList<>();
+        if (supplier.getId() != -1) {
+            chosenItemsAndPrices = restaurantService.getItemAndPriceBySupplierId(supplier.getId());
+        }
+        model.addAttribute("chosenItemsAndPrices", chosenItemsAndPrices);
 
         return "edit-supplier";
     }

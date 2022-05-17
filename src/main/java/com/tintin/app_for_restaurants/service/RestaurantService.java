@@ -38,4 +38,5 @@ public interface RestaurantService {
 
     public double getPriceByIds(int supplierId, int itemId);
     public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId);
+    public List<ItemToSupplier> getItemAndPriceBySupplierId(int supplierId);
 }

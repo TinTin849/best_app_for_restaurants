@@ -43,4 +43,15 @@ public class ItemToSupplierDAOImpl implements ItemToSupplierDAO {
         List<ItemToSupplier> result = query.getResultList();
         return result;
     }
+
+    @Override
+    public List<ItemToSupplier> getItemAndPriceBySupplierId(int supplierId) {
+        Session session = sessionFactory.getCurrentSession();
+
+        Query query = session.createQuery("FROM ItemToSupplier WHERE supplier.id = :supplierId");
+        query.setParameter("supplierId", supplierId);
+
+        List<ItemToSupplier> result = query.getResultList();
+        return result;
+    }
 }

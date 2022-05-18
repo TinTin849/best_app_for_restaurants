@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MyController {
@@ -148,6 +149,28 @@ public class MyController {
         }
         model.addAttribute("chosenItemsAndPrices", chosenItemsAndPrices);
 
+
+        List<Item> unusedItems = restaurantService.getAllGoods();
+
+        List<Item> usedItems = new ArrayList<>();
+        for (ItemToSupplier itemToSupplier : chosenItemsAndPrices) {
+            usedItems.add(itemToSupplier.getItem());
+        }
+        unusedItems.removeAll(usedItems);
+        model.addAttribute("unusedItems", unusedItems);
+
         return "edit-supplier";
+    }
+
+    @RequestMapping("/addItemToSupplier")
+    public String addItemToSupplier(@ModelAttribute("itemToAdd") Item item
+            , @ModelAttribute("priceOfAddedItem") Double price
+            , Model model) {
+
+        model.addAttribute()
+
+
+
+        return "redirect:/editSupplier";
     }
 }

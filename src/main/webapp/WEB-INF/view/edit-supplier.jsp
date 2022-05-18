@@ -32,6 +32,19 @@
                 </td>
             </tr>
         </c:forEach>
+        <tr>
+            <td>
+                <form:form action="addItemToSupplier" modelAttribute="itemToAdd">
+                    <form:select path="id">
+                        <form:option value="-1">--SELECT--</form:option>
+                        <c:forEach var="item" items="${unusedItems}">
+                            <form:option value="${item.id}" name="supplierId">${item.name}</form:option>
+                        </c:forEach>
+                    </form:select>
+                    <input type="submit" value="ADD">
+                </form:form>
+            </td>
+        </tr>
     </table>
     <input type="submit" value="OK">
 

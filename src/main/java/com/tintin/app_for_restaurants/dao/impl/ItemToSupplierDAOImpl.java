@@ -54,4 +54,11 @@ public class ItemToSupplierDAOImpl implements ItemToSupplierDAO {
         List<ItemToSupplier> result = query.getResultList();
         return result;
     }
+
+    @Override
+    public void saveItemToSupplier(ItemToSupplier itemToSupplier) {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.saveOrUpdate(itemToSupplier);
+    }
 }

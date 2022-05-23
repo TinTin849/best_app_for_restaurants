@@ -11,7 +11,7 @@
 <form:form action="saveSupplier" modelAttribute="supplier">
 
     <form:hidden path="id"/>
-    <h1>${chosenItemsAndPrices[0].supplier.name}</h1>
+    <h1>${supplier.name}</h1>
     <br><br>
 
     <table border="1">
@@ -20,34 +20,32 @@
             <th>Price</th>
             <th>Action</th>
         </tr>
-        <c:forEach var="item" items="${chosenItemsAndPrices}">
+        <c:forEach var="currentNote" items="${chosenItemsAndPrices}">
             <tr>
-                <td>${item.item.name}</td>
-                <td>${item.price}</td>
+                <td>${currentNote.item.name}</td>
+                <td>${currentNote.price}</td>
                 <td>
-                    <form action="deleteItem">
-                        <input type="hidden" value="${item.id}" name="itemId"/>
-                        <input type="submit" name="Delete" value="Delete"/>
-                    </form>
+                        <%--                    <form action="deleteItem">--%>
+                        <%--                        <input type="hidden" value="${item.id}" name="itemId"/>--%>
+                        <%--                        <input type="submit" name="Delete" value="Delete"/>--%>
+                        <%--                    </form>--%>
                 </td>
             </tr>
         </c:forEach>
-        <tr>
-            <td>
-                <form:form action="addItemToSupplier" modelAttribute="itemToAdd">
-                    <form:select path="id">
-                        <form:option value="-1">--SELECT--</form:option>
-                        <c:forEach var="item" items="${unusedItems}">
-                            <form:option value="${item.id}" name="supplierId">${item.name}</form:option>
-                        </c:forEach>
-                    </form:select>
-                    <input type="submit" value="ADD">
-                </form:form>
-            </td>
-        </tr>
     </table>
     <input type="submit" value="OK">
+</form:form>
 
+<form:form action="/addItemToSupplier" modelAttribute="itemAndPrice">
+    <form:select path="item">
+        <option value="-1">--SELECT--</option>
+        <c:forEach var="currentNote" items="${unusedItems}">
+            <option value="${currentNote.id}" name="supplierId">${currentNote.name}</option>
+        </c:forEach>
+    </form:select>
+    <form:input type="number" path="price" title="цена"/>
+    <br>
+    <input type="submit" value="Add">
 </form:form>
 
 </body>

@@ -10,4 +10,6 @@ public interface ItemToSupplierDAO {
     public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId);
 
     public List<ItemToSupplier> getItemAndPriceBySupplierId(int supplierId);
+
+    public void saveItemToSupplier(ItemToSupplier itemToSupplier);
 }

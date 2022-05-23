@@ -134,13 +134,12 @@ public class MyController {
         List<Supplier> allSuppliers = restaurantService.getAllSuppliers();
         model.addAttribute("allSuppliers", allSuppliers);
 
-        System.out.println(supplier.getId());
-
         return "fix-suppliers-and-items";
     }
 
     @RequestMapping("/editSupplier")
     public String editSupplier(@ModelAttribute("supplier") Supplier supplier
+            , @ModelAttribute("itemAndPrice") ItemToSupplier itemAndPrice
             , Model model) {
 
         List<ItemToSupplier> chosenItemsAndPrices = new ArrayList<>();
@@ -150,26 +149,37 @@ public class MyController {
         model.addAttribute("chosenItemsAndPrices", chosenItemsAndPrices);
 
 
-        List<Item> unusedItems = restaurantService.getAllGoods();
+        List<Item> allItems = restaurantService.getAllGoods();
 
         List<Item> usedItems = new ArrayList<>();
         for (ItemToSupplier itemToSupplier : chosenItemsAndPrices) {
             usedItems.add(itemToSupplier.getItem());
         }
-        unusedItems.removeAll(usedItems);
-        model.addAttribute("unusedItems", unusedItems);
+
+//        List<Item> unusedItems = new ArrayList<>();
+//        for (Item item : allItems) {
+//            int tempId = item.getId();
+//
+//            for (Item curItem : usedItems) {
+//                if (tempId == curItem.getId()) {
+//                    break;
+//                }
+//                unusedItems.add(item);
+//            }
+//        }
+
+        allItems.removeAll(usedItems);
+
+        model.addAttribute("unusedItems", allItems);
 
         return "edit-supplier";
     }
 
     @RequestMapping("/addItemToSupplier")
-    public String addItemToSupplier(@ModelAttribute("itemToAdd") Item item
-            , @ModelAttribute("priceOfAddedItem") Double price
+    public String addItemToSupplier(@ModelAttribute("itemAndPrice") ItemToSupplier itemToSupplier
             , Model model) {
 
-        model.addAttribute()
-
-
+        restaurantService.saveItemToSupplier(itemToSupplier);
 
         return "redirect:/editSupplier";
     }

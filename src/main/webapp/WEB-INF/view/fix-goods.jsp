@@ -17,7 +17,7 @@
             <td>${item.name}</td>
             <td>${item.numberOfItems}</td>
             <td>
-                <form action="updateWarehouse">
+                <form action="fix-warehouse/update-warehouse">
                     <input type="number" value="${item.numberOfItems}" name="numberToSet"/>
                     <input type="hidden" value="${item.id}" name="itemId">
                     <input type="submit" name="Update" value="Update"/>

@@ -7,7 +7,7 @@
 
 <h2>New order panel</h2>
 
-<form:form action="newOrder" modelAttribute="item">
+<form:form action="new-order" modelAttribute="item">
     <form:select path="id">
         <form:option value="-1">--SELECT--</form:option>
         <c:forEach var="item" items="${allGoods}">
@@ -28,7 +28,7 @@
             <td>${chosenSaP.supplier.name}</td>
             <td>${chosenSaP.price}</td>
             <td>
-                <form action="addOrder">
+                <form action="new-order/add-order">
                     <input type="number" min="1" name="numberToOrder"/>
                     <input type="hidden" value="${chosenSaP.supplier.id}" name="supplierName">
                     <input type="hidden" value="${chosenSaP.item.id}" name="itemName">
@@ -40,9 +40,9 @@
 </table>
 <br><br>
 
-<input type="button" value="Show all orders" onclick="window.location.href = 'allOrders'"/>
+<input type="button" value="Show all orders" onclick="window.location.href = 'all-orders'"/>
 <br><br>
-<input type="button" value="Fix Suppliers and Items" onclick="window.location.href = 'fixSuppliersAndItems'"/>
+<input type="button" value="Fix Suppliers and Items" onclick="window.location.href = 'fix-suppliers-and-items'"/>
 
 </body>
 

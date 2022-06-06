@@ -23,7 +23,7 @@
             <td>${order.price}</td>
             <td>${order.creationDate}</td>
             <td>
-                <form action="deleteOrder">
+                <form action="all-orders/delete-order">
                     <input type="hidden" value="${order.id}" name="orderId"/>
                     <input type="submit" name="Delete" value="Delete"/>
                 </form>

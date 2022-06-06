@@ -17,7 +17,7 @@
             <td>${item.name}</td>
             <td>${item.numberOfItems}</td>
             <td>
-                <form action="writeOffOfGoods">
+                <form action="write-off-of-goods">
                     <input type="number" max="${item.numberOfItems}" min="0" name="numberToWriteOff"/>
                     <input type="hidden" value="${item.id}" name="itemId" />
                     <input type="submit" name="Write-Off" value="Write-Off"/>
@@ -28,9 +28,9 @@
 </table>
 <br><br>
 
-<input type="button" value="New Order" onclick="window.location.href = 'newOrder'"/>
+<input type="button" value="New Order" onclick="window.location.href = 'new-order'"/>
 <br><br>
-<input type="button" value="Fix Warehouse" onclick="window.location.href = 'fixGoods'"/>
+<input type="button" value="Fix Warehouse" onclick="window.location.href = 'fix-warehouse'"/>
 
 </body>
 

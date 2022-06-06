@@ -61,4 +61,11 @@ public class ItemToSupplierDAOImpl implements ItemToSupplierDAO {
 
         session.saveOrUpdate(itemToSupplier);
     }
+
+    @Override
+    public void deleteItemInSupplier(ItemToSupplier itemToSupplier) {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.delete(itemToSupplier);
+    }
 }

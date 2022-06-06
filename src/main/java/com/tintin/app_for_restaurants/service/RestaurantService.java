@@ -40,4 +40,6 @@ public interface RestaurantService {
     public List<ItemToSupplier> getSupplierAndPriceByItemId(int itemId);
     public List<ItemToSupplier> getItemAndPriceBySupplierId(int supplierId);
     public void saveItemToSupplier(ItemToSupplier itemToSupplier);
+
+    public void deleteItemInSupplier(ItemToSupplier itemToSupplier);
 }

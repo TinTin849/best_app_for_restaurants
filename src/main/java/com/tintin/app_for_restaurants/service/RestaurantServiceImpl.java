@@ -131,4 +131,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     public void saveItemToSupplier(ItemToSupplier itemToSupplier) {
         itemToSupplierDAO.saveItemToSupplier(itemToSupplier);
     }
+
+    @Override
+    public void deleteItemInSupplier(ItemToSupplier itemToSupplier) {
+        itemToSupplierDAO.deleteItemInSupplier(itemToSupplier);
+    }
 }
